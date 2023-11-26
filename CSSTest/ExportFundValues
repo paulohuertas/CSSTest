@@ -1,0 +1,146 @@
+﻿fund_id,fund_name,fund_description,value_date,value_double
+109,Maria Schmidt ,Money Market Fund,11/26/2023 5:15:25 PM,41140.95
+166,Andre Knight ,Stock Fund,11/25/2023 11:57:50 PM,40390.1
+167,Andre Schultz Todd ,Exchange-Rate Fund,11/25/2023 11:57:51 PM,9009.29
+168,Janice Byrd ,Bond,11/25/2023 11:57:51 PM,54787.92
+169,Mayara Daniel Ortiz Hammond ,Close-end Fund,11/25/2023 11:57:51 PM,51738.87
+170,Maria Beck Todd ,Bond,11/25/2023 11:57:51 PM,12070.93
+175,Mayara Ramos ,Money Market Fund,11/26/2023 12:08:58 AM,67233.9
+176,Carlos Patel ,Mutual Fund,11/26/2023 12:09:01 AM,41955.02
+177,Niamh Little ,Close-end Fund,11/26/2023 12:09:01 AM,4373.13
+178,Alexandre Savage ,Bond Fund,11/26/2023 12:09:01 AM,6353.35
+179,Aoife Spencer ,Unit trust Fund,11/26/2023 12:09:01 AM,24143.2
+185,Diogo Simpson ,Index Fund,11/26/2023 12:11:17 AM,22983.69
+186,Ana Harris ,Close-end Fund,11/26/2023 12:11:20 AM,34647.04
+187,Janice Valdez Reyes Hammond ,Bond,11/26/2023 12:11:20 AM,322.26
+188,Eva Tyler Harmon ,Exchange-Rate Fund,11/26/2023 12:11:20 AM,41795.09
+189,Mayara Delgado Harris Hammond ,Mutual Fund,11/26/2023 12:11:20 AM,15285.15
+190,Eva Reyes Erickson ,Money Market Fund,11/26/2023 12:11:20 AM,30074.71
+191,Carlos Olson Guerrero ,Index Fund,11/26/2023 12:11:20 AM,22037.44
+192,Julia Young ,Mutual Fund,11/26/2023 12:11:20 AM,4765.67
+193,Eva Chambers Blake ,Mutual Fund,11/26/2023 12:11:20 AM,54847.63
+194,Maria Little Turner Turner ,Bond Fund,11/26/2023 12:11:20 AM,49244.5
+195,Eva Guerrero ,Index Fund,11/26/2023 12:11:20 AM,12198.08
+196,Vinicius Guerrero Schultz Cruz ,Mutual Fund,11/26/2023 12:11:20 AM,66703.98
+197,Sandra Schultz Lowe ,Fixed Income Fund,11/26/2023 12:11:20 AM,75664.07
+198,Vinicius Byrd ,Close-end Fund,11/26/2023 12:11:20 AM,26026.63
+199,Gabriel Blake Simpson Delgado ,Stock Fund,11/26/2023 12:11:20 AM,10853.13
+215,Aoife Estrada ,Bond Fund,11/26/2023 12:17:41 AM,4305.81
+216,Isabelle Adkins Patel ,Close-end Fund,11/26/2023 12:17:43 AM,8177.21
+217,Carlos Schultz Vaughan Williams ,Close-end Fund,11/26/2023 12:17:43 AM,18569.27
+218,Flavio Cruz Mejia ,Stock Fund,11/26/2023 12:17:43 AM,38176.09
+219,Carlos Smith ,Fixed Income Fund,11/26/2023 12:17:43 AM,15310.92
+220,Paulo Hill Spencer Grant ,Fixed Income Fund,11/26/2023 12:17:43 AM,10048.88
+221,Niamh Savage Vaughan ,Stock Fund,11/26/2023 12:17:43 AM,48994.5
+222,Luiz Sandoval Byrd Erickson ,Bond Fund,11/26/2023 12:17:43 AM,11590.9
+223,Caoimhe Young Olson ,Bond,11/26/2023 12:17:43 AM,22265.44
+224,Aoife Spencer Adkins Delgado ,Unit trust Fund,11/26/2023 12:17:43 AM,448.63
+225,Raissa Estrada ,Mutual Fund,11/26/2023 12:17:43 AM,28998.88
+226,Filipe Ramos Guerrero ,Index Fund,11/26/2023 12:17:43 AM,28233.91
+227,Julia Mejia Delgado Blake ,Exchange-Rate Fund,11/26/2023 12:17:43 AM,89033.6
+228,Janice Smith ,Mutual Fund,11/26/2023 12:17:43 AM,8355.77
+229,Filipe Tucker ,Stock Fund,11/26/2023 12:17:43 AM,4554.13
+245,Aoife Delgado Little ,Exchange-Rate Fund,11/26/2023 12:25:24 AM,37560.17
+246,Beatriz Wagner Little Ortiz ,Close-end Fund,11/26/2023 12:25:26 AM,4792.9
+247,Gabriel Beck Harmon Williams ,Money Market Fund,11/26/2023 12:25:26 AM,35312.72
+248,Mayara Adkins Beck ,Index Fund,11/26/2023 12:25:26 AM,37217.84
+249,Niamh Marsh ,Stock Fund,11/26/2023 12:25:26 AM,8499.47
+250,Thiago Hammond ,Mutual Fund,11/26/2023 12:25:26 AM,33590.86
+251,Ana Harris Bolton ,Bond,11/26/2023 12:25:26 AM,50090.74
+252,Mayara Olson Blake Patel ,Stock Fund,11/26/2023 12:25:26 AM,3927.73
+253,Isabelle Daniel Daniel ,Bond,11/26/2023 12:25:26 AM,7001.88
+254,Filipe Lang Savage ,Fixed Income Fund,11/26/2023 12:25:26 AM,91337.04
+255,Caoimhe Estrada Harris Harris ,Bond,11/26/2023 12:25:26 AM,31229.56
+256,Raissa Grant ,Exchange-Rate Fund,11/26/2023 12:25:26 AM,8650.37
+257,Alexandre Ramos Schmidt Simpson ,Bond,11/26/2023 12:25:26 AM,35495.99
+258,Mayara Ward Lowe Turner ,Exchange-Rate Fund,11/26/2023 12:25:26 AM,16947.15
+259,Eva Patel Ortiz ,Unit trust Fund,11/26/2023 12:25:26 AM,1946.84
+275,Filipe Brewer ,Bond Fund,11/26/2023 12:27:43 AM,10538.49
+276,Mayara Schmidt Blake ,Fixed Income Fund,11/26/2023 12:27:44 AM,69093.65
+277,Vinicius Ortiz Simpson ,Stock Fund,11/26/2023 12:27:44 AM,13015.63
+278,Isabelle Ward ,Money Market Fund,11/26/2023 12:27:44 AM,12238.14
+279,Ana Turner Schmidt ,Bond Fund,11/26/2023 12:27:44 AM,25941.13
+280,Thiago Patel Hammond Valdez ,Money Market Fund,11/26/2023 12:27:44 AM,57032.92
+281,Eva Reyes ,Mutual Fund,11/26/2023 12:27:44 AM,19363.32
+282,Gabriela Hammond Erickson ,Close-end Fund,11/26/2023 12:27:44 AM,11798.7
+283,Thiago Smith Erickson ,Exchange-Rate Fund,11/26/2023 12:27:44 AM,73182.28
+284,Andre Daniel Grant Williams ,Bond,11/26/2023 12:27:44 AM,40287.65
+285,Paulo Ingram Simpson ,Unit trust Fund,11/26/2023 12:27:44 AM,22576.2
+286,Sandra Ortiz ,Index Fund,11/26/2023 12:27:44 AM,20312.55
+287,Isabelle Reyes Schmidt Harmon ,Exchange-Rate Fund,11/26/2023 12:27:44 AM,6248.14
+288,Luiz Young Ingram ,Mutual Fund,11/26/2023 12:27:44 AM,34436.93
+289,Raissa Williams Wagner ,Money Market Fund,11/26/2023 12:27:44 AM,12268.4
+305,Ana Knight Grant Chambers ,Index Fund,11/26/2023 12:36:33 AM,24067.64
+306,Vinicius Patel ,Close-end Fund,11/26/2023 12:36:34 AM,78315.45
+307,Filipe Moreno ,Money Market Fund,11/26/2023 12:36:34 AM,20512.3
+308,Sandra Spencer ,Money Market Fund,11/26/2023 12:36:34 AM,19448.38
+309,Alexandre Todd ,Money Market Fund,11/26/2023 12:36:34 AM,31289.05
+310,Niamh Blake Vaughan ,Bond Fund,11/26/2023 12:36:34 AM,26767.24
+311,Luiz Byrd Young Tyler ,Index Fund,11/26/2023 12:36:34 AM,20275.68
+312,Leandro Simpson Knight Ingram ,Bond,11/26/2023 12:36:34 AM,33915.97
+313,Janice Ryan ,Close-end Fund,11/26/2023 12:36:34 AM,26944.84
+314,Andre Byrd ,Bond,11/26/2023 12:36:34 AM,76996.47
+315,Raissa Tucker Daniel ,Close-end Fund,11/26/2023 12:36:34 AM,5409.19
+316,Andre Young Delgado ,Close-end Fund,11/26/2023 12:36:34 AM,38477.3
+317,Eva Turner Valdez Hill ,Index Fund,11/26/2023 12:36:34 AM,9250.12
+318,Flavio Delgado Olson Reyes ,Money Market Fund,11/26/2023 12:36:34 AM,24795.03
+319,Thiago Schmidt Knight Todd ,Mutual Fund,11/26/2023 12:36:34 AM,41381.96
+321,Eva Moreno Hill ,Unit trust Fund,11/26/2023 2:41:52 PM,12184.77
+322,Flavio Knight Simpson Vaughan ,Mutual Fund,11/26/2023 2:41:58 PM,6204.02
+323,Filipe Ortiz ,Fixed Income Fund,11/26/2023 2:41:58 PM,520.78
+324,Andre Reyes ,Index Fund,11/26/2023 2:41:58 PM,23743.65
+325,Diogo Smith Grant ,Mutual Fund,11/26/2023 2:41:58 PM,11734.3
+326,Aoife Harris ,Index Fund,11/26/2023 2:41:58 PM,60954.52
+327,Mayara Ortiz Adkins ,Bond,11/26/2023 2:41:58 PM,31573.75
+328,Filipe Estrada Moreno Harmon ,Stock Fund,11/26/2023 2:41:58 PM,49873.23
+329,Filipe Lang ,Fixed Income Fund,11/26/2023 2:41:58 PM,3590.86
+330,Niamh Simpson ,Bond Fund,11/26/2023 2:41:58 PM,230.55
+331,Mayara Erickson Little ,Close-end Fund,11/26/2023 2:41:58 PM,40111.71
+332,Niamh Hill Little Guerrero ,Money Market Fund,11/26/2023 2:41:58 PM,22706.5
+333,Maria Estrada Vaughan Tucker ,Index Fund,11/26/2023 2:41:58 PM,19762.74
+334,Gabriela Lang ,Bond,11/26/2023 2:41:58 PM,92341.99
+335,Andre Simpson ,Index Fund,11/26/2023 2:41:58 PM,10989.1
+351,Luiz Chambers ,Unit trust Fund,11/26/2023 5:15:22 PM,9696.64
+352,Niamh Erickson ,Mutual Fund,11/26/2023 5:15:24 PM,17935.3
+353,Thiago Tucker Ingram ,Unit trust Fund,11/26/2023 5:15:24 PM,10318.97
+354,Vinicius Lang Tucker ,Index Fund,11/26/2023 5:15:24 PM,46855.67
+355,Pedro Hammond Tucker ,Mutual Fund,11/26/2023 5:15:24 PM,48005.35
+356,Gabriel Chambers Lang Tucker ,Fixed Income Fund,11/26/2023 5:15:24 PM,19170.41
+357,Janice Ortiz Simpson Chambers ,Unit trust Fund,11/26/2023 5:15:24 PM,28550.18
+358,Carlos Adkins Hammond ,Stock Fund,11/26/2023 5:15:24 PM,15661.81
+359,Vinicius Wagner ,Fixed Income Fund,11/26/2023 5:15:25 PM,70067.21
+360,Filipe Young Erickson Beck ,Stock Fund,11/26/2023 5:15:25 PM,427.19
+362,Luiz Blake Guerrero Guerrero ,Bond,11/26/2023 5:15:25 PM,4641.96
+363,Luiz Tucker Harmon ,Stock Fund,11/26/2023 5:15:25 PM,406.97
+364,Maria Ortiz Moreno ,Mutual Fund,11/26/2023 5:15:25 PM,65124.56
+365,Aoife Williams Lowe ,Bond,11/26/2023 5:15:25 PM,1201.26
+381,Ana Simpson ,Money Market Fund,11/26/2023 5:17:29 PM,43704.09
+382,Sandra Beck Little Sandoval ,Close-end Fund,11/26/2023 5:17:29 PM,6771.05
+383,Raissa Wagner Beck Knight ,Money Market Fund,11/26/2023 5:17:29 PM,26080.25
+384,Gabriel Mejia Lowe Vaughan ,Bond,11/26/2023 5:17:29 PM,100.48
+385,Pedro Ryan Spencer ,Bond Fund,11/26/2023 5:17:29 PM,57945.38
+386,Leandro Williams ,Exchange-Rate Fund,11/26/2023 5:17:29 PM,30543.24
+387,Thiago Bolton ,Exchange-Rate Fund,11/26/2023 5:17:29 PM,56571.05
+388,Janice Tucker Estrada Norris ,Mutual Fund,11/26/2023 5:17:29 PM,39645.19
+389,Beatriz Schultz Erickson ,Bond,11/26/2023 5:17:29 PM,6472.71
+390,Larissa Hill Marsh ,Unit trust Fund,11/26/2023 5:17:29 PM,20957.17
+391,Gabriel Ramos Tucker ,Stock Fund,11/26/2023 5:17:29 PM,49276.34
+392,Carlos Grant Little Guerrero ,Index Fund,11/26/2023 5:17:29 PM,6258.89
+393,Larissa Vaughan ,Bond Fund,11/26/2023 5:17:29 PM,15373.24
+394,Gabriel Ramos Moreno ,Bond,11/26/2023 5:17:29 PM,4249.33
+395,Maria Ramos Spencer ,Money Market Fund,11/26/2023 5:17:29 PM,11512.88
+411,Mayara Schmidt ,Fixed Income Fund,11/26/2023 5:20:29 PM,28651.51
+412,Luiz Williams Young Blake ,Bond Fund,11/26/2023 5:20:29 PM,2733.53
+413,Aoife Ward Tyler ,Unit trust Fund,11/26/2023 5:20:29 PM,68708.75
+414,Aoife Schultz Olson ,Bond,11/26/2023 5:20:29 PM,66758.76
+415,Gabriel Moreno ,Bond,11/26/2023 5:20:29 PM,26299.09
+416,Carlos Tyler Ortiz ,Exchange-Rate Fund,11/26/2023 5:20:29 PM,24156.92
+417,Raissa Lang Ingram ,Mutual Fund,11/26/2023 5:20:29 PM,25273.22
+418,Diogo Harmon Vaughan ,Close-end Fund,11/26/2023 5:20:29 PM,11710.36
+419,Gabriel Turner ,Unit trust Fund,11/26/2023 5:20:29 PM,30894.14
+420,Caoimhe Williams Brewer Mejia ,Stock Fund,11/26/2023 5:20:29 PM,56719.49
+421,Vinicius Ortiz Tucker ,Money Market Fund,11/26/2023 5:20:29 PM,4647.68
+422,Sandra Beck ,Bond Fund,11/26/2023 5:20:29 PM,38966.72
+423,Gabriel Simpson ,Exchange-Rate Fund,11/26/2023 5:20:29 PM,6742.02
+424,Diogo Estrada ,Money Market Fund,11/26/2023 5:20:29 PM,13708.99
+425,Niamh Moreno Cruz ,Fixed Income Fund,11/26/2023 5:20:29 PM,8452.73

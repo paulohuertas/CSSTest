@@ -1,10 +1,15 @@
 using CSSTest.Data;
+using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var configuration = builder.Configuration;
+
+//builder.Services.AddSingleton<IConfiguration>(configuration);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
