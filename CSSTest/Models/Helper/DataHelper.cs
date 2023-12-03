@@ -4,15 +4,19 @@ using System.Data;
 using ClosedXML.Excel;
 using CSSTest.Data;
 using LINQtoCSV;
+using System.Reflection;
+using CSSTest.Interfaces;
 
 namespace CSSTest.Models.Helper
 {
-    public class DataHelper
+    public class DataHelper : IFund
     {
         public static Random random = new Random();
 
         private readonly IConfiguration _config;
         private readonly ApplicationDbContext _context;
+
+        public IConfiguration _configuration { get { return _config; } }
         public DataHelper() { }
 
         public DataHelper(IConfiguration configuration, ApplicationDbContext context)
@@ -20,11 +24,8 @@ namespace CSSTest.Models.Helper
             _config = configuration;
             _context = context;
         }
-
         public List<Fund> CreateFunds(int start = 1, int finish = 5)
         {
-            List<Fund> result = new List<Fund>();
-
             var list = Enumerable.Range(start, finish).Select(f => new Fund
             {
                 Name = CreateFullName(random.Next(3)),
@@ -35,37 +36,37 @@ namespace CSSTest.Models.Helper
 
             DataHelper dataHelper = new DataHelper(_config, _context);
 
-            dataHelper.InsertFundToDb(funds);
+            this.InsertFundToDb(funds);
 
-            var values = dataHelper.CreateFundValues(list, 1, list.Count);
+            this.CreateFundValues(1, 1000);
 
             return list;
         }
-        public List<Value> CreateFundValues(List<Fund> funds, int start, int finish)
+        public void CreateFundValues(int start, int finish)
         {
-            List<Value> result = new List<Value>();
-
-            DataHelper dataHelper = new DataHelper(_config, _context);
-
-            if (funds.Count > 0)
+            while (start < finish)
             {
-                var list = Enumerable.Range(start, finish).Select((v, index) => new Value
+                int size = _context.Funds.Count();
+                int rdn = random.Next(96, size);
+                var f = _context.Funds.Where(f => f.Id == rdn).FirstOrDefault();
+
+                if (f != null)
                 {
-                    ValueDate = DateTime.Now,
-                    ValueDouble = Math.Round(random.NextDouble() * random.Next(100000), 2),
-                    FundId = _context.Funds.FirstOrDefault(f => f.Name == funds[index].Name).Id
-                }).ToList();
+                    Value value = new Value
+                    {
+                        ValueDate = DateTime.Now,
+                        ValueDouble = Math.Round(random.NextDouble() * random.Next(100000), 2),
+                        FundId = f.Id
+                    };
 
-               var values = new DataReaderAdapter<Value>(list);
+                    var values = new DataReaderAdapter<Value>(value);
 
-               dataHelper.InsertValuesToDb(values);
+                    this.InsertValuesToDb(values);
+                }
 
-                return list;
+                start++;
             }
-
-            return null;
         }
-
         public void InsertFundToDb(DataReaderAdapter<Fund> _items)
         {
             string schema = "dbo";
@@ -108,6 +109,14 @@ namespace CSSTest.Models.Helper
                 bulkyCopy.Close();
 
             }
+        }
+
+        public int GetFundIdRandomly()
+        {
+            int size = _context.Funds.Count();
+            int rdn = random.Next(size);
+            int id = _context.Funds.Where(f => f.Id == rdn).Select(f => f.Id).FirstOrDefault();
+            return id;
         }
 
         public string CreateFullName(int totalSurnames = 1)
@@ -177,12 +186,13 @@ namespace CSSTest.Models.Helper
 
         public IQueryable<FundValueColumnsCsv> ExportToExcel()
         {
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string savePath = System.IO.Path.Combine(desktop + "exported.csv");
+            string path = @"C:\01. Paulo Huertas\c#\TestFunds\CSSTest";
+            string savePath = System.IO.Path.Combine(path + ".csv");
 
 
             var query = from f in _context.Funds
                         join val in _context.Value on f.Id equals val.FundId
+                        orderby f.Id
                         select new FundValueColumnsCsv
                         {
                             fund_id = f.Id,
@@ -205,237 +215,5 @@ namespace CSSTest.Models.Helper
             return query;
 
         }
-    }
-
-    public class FundValueColumnsCsv
-    {
-        [CsvColumn(FieldIndex = 1)]
-        public int fund_id { get; set; }
-        [CsvColumn(FieldIndex = 2)]
-        public string fund_name { get; set; }
-        [CsvColumn(FieldIndex = 3)]
-        public string fund_description { get; set; }
-        [CsvColumn(FieldIndex = 4)]
-        public DateTime value_date { get; set; }
-        [CsvColumn(FieldIndex = 5)]
-        public Double value_double { get; set; }
-
-    }
-
-    public class DataReaderAdapter<T> : IDataReader
-    {
-        public int Depth { get; } = 0;
-
-        public bool IsClosed => _items.Count == _currentIndex;
-
-        public int RecordsAffected => -1;
-
-        private readonly IList<T> _items;
-        private List<string> _columnNames;
-        private int _currentIndex;
-
-        private OrderedDictionary FieldDictionary { get; }
-        public DataReaderAdapter(IList<T> items)
-        {
-            _items = items;
-            _currentIndex = -1;
-            FieldDictionary = PrepareFieldLookup();
-        }
-
-        private static OrderedDictionary PrepareFieldLookup()
-        {
-            var fieldlLookup = new OrderedDictionary();
-            int i = 0;
-
-            foreach (var property in typeof(T).GetProperties())
-            {
-                if (property.Name.Contains("FundId") || !property.Name.Contains("Fund"))
-                    fieldlLookup.Add(property.Name, new KeyValuePair<int, string>(i++, property.Name));
-            }
-
-            return fieldlLookup;
-        }
-
-        public List<string> ColumnNames
-        {
-            get
-            {
-                if (_columnNames == null)
-                {
-                    _columnNames = new List<string>();
-                    foreach (var kvp in FieldDictionary)
-                    {
-                        var colName = ((dynamic)kvp).Key;
-                        _columnNames.Add(colName);
-                    }
-                }
-                return _columnNames;
-            }
-        }
-
-        public int FieldCount => FieldDictionary.Count;
-
-        public void Dispose()
-        {
-
-        }
-
-        public object GetValue(int i)
-        {
-            string propName = ((dynamic)FieldDictionary[i]).Value;
-            var currentItem = _items[_currentIndex];
-
-            var propertyInfo = currentItem.GetType().GetProperty(propName);
-            object value = null;
-
-            if (propertyInfo != null)
-            {
-                value = propertyInfo.GetValue(currentItem, null);
-            }
-
-            return value;
-        }
-
-        public bool IsDBNull(int i)
-        {
-            return false;
-        }
-
-        public int GetOrdinal(string name)
-        {
-            return ((dynamic)FieldDictionary[name]).Key;
-        }
-
-        public bool Read()
-        {
-            if (_currentIndex < _items.Count - 1)
-            {
-                _currentIndex++;
-                return true;
-            }
-
-            return false;
-        }
-
-        #region properties not implemented
-        public object this[int i] => throw new NotImplementedException();
-
-        public object this[string name] => throw new NotImplementedException();
-
-        #endregion
-
-        #region methods not implemented
-
-        public void Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetBoolean(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public byte GetByte(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public long GetBytes(int i, long fieldOffset, byte[] buffer, int bufferoffset, int length)
-        {
-            throw new NotImplementedException();
-        }
-
-        public char GetChar(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public long GetChars(int i, long fieldoffset, char[] buffer, int bufferoffset, int length)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataReader GetData(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetDataTypeName(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DateTime GetDateTime(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetDecimal(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public double GetDouble(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Type GetFieldType(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public float GetFloat(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Guid GetGuid(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public short GetInt16(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetInt32(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public long GetInt64(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetName(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable GetSchemaTable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetString(int i)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetValues(object[] values)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool NextResult()
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }

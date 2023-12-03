@@ -1,4 +1,6 @@
 using CSSTest.Data;
+using CSSTest.Interfaces;
+using CSSTest.Models.Helper;
 using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 var configuration = builder.Configuration;
 
 //builder.Services.AddSingleton<IConfiguration>(configuration);
+
+builder.Services.AddScoped<DataHelper>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

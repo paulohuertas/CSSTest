@@ -4,6 +4,7 @@ using CSSTest.Models.Helper;
 using Microsoft.AspNetCore.Mvc;
 using CSSTest.DTO;
 using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace CSSTest.Controllers
 {
@@ -12,39 +13,48 @@ namespace CSSTest.Controllers
     public class FundController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly DataHelper _dataHelper;
 
-        public FundController(ApplicationDbContext context, IConfiguration configuration)
+        public FundController(ApplicationDbContext context, DataHelper dataHelper)
         {
             _context = context;
-            _configuration = configuration;
+            _dataHelper = dataHelper;
         }
 
         [HttpPost("{funds}")]
         [Route("Fund/CreateFunds")]
         public IActionResult CreateFunds()
         {
-            if(_configuration != null)
+            if(_dataHelper != null)
             {
-                IConfiguration configuration = _configuration;
-                ApplicationDbContext context = _context;
+                var funds = _dataHelper.CreateFunds(1, 5);
 
-                DataHelper dataHelper = new DataHelper(configuration, context);
-                var funds = dataHelper.CreateFunds(1, 5);
-
-                foreach (Fund fund in funds)
-                {
-                    var found = _context.Funds.FirstOrDefault(f => f.Name == fund.Name);
-                    if (found != null)
-                    {
-                        _context.Funds.Add(fund);
-                        _context.SaveChanges();
-                    }
-                }
                 return Ok(funds);
             }
 
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetLatestRecordById(int id)
+        {
+            var fund = (from f in _context.Funds
+                        join v in _context.Value on f.Id equals v.FundId
+                        where f.Id == id
+                        orderby v.ValueId descending
+                        select new
+                        {
+                            Id = f.Id,
+                            Name = f.Name,
+                            Description = f.Description,
+                            ValueDate = v.ValueDate,
+                            ValuePrice = v.ValueDouble,
+                            ValueiD = v.ValueId
+                        }).Take(1);
+
+            if (fund == null) return BadRequest();
+
+            return Ok(fund);
         }
 
         [HttpPut("{id}")]
@@ -67,13 +77,9 @@ namespace CSSTest.Controllers
         [HttpGet]
         public IActionResult ExportToCSV()
         {
-            if (_configuration != null)
+            if (_dataHelper != null)
             {
-                IConfiguration configuration = _configuration;
-                ApplicationDbContext context = _context;
-
-                DataHelper dataHelper = new DataHelper(configuration, context);
-                IQueryable fundValueCSV = dataHelper.ExportToExcel();
+                IQueryable fundValueCSV = _dataHelper.ExportToExcel();
 
                 return Ok(fundValueCSV);
             }
