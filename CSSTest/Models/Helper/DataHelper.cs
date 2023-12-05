@@ -186,7 +186,7 @@ namespace CSSTest.Models.Helper
 
         public IQueryable<FundValueColumnsCsv> ExportToExcel()
         {
-            string path = @"C:\01. Paulo Huertas\c#\TestFunds\CSSTest";
+            string path = Directory.GetCurrentDirectory();
             string savePath = System.IO.Path.Combine(path + ".csv");
 
 
